@@ -1,0 +1,19 @@
+CNTK2.5.1"ai.cntk(:Ë
+{
+InputOutputPooling"AveragePool*
+kernel_shape@@ *
+strides@@ *
+pads@@@@ *
+count_include_pad 	CNTKGraphZ
+Input
+
+
+
+
+b 
+Output
+
+
+
+
+B

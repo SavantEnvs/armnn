@@ -1,0 +1,10 @@
+project: savantenvs/armnn
+target: fuzz_pipe_server
+
+cmds:
+  - cmd: /mayhem/fuzz_pipe_server
+    libfuzzer: true
+    timeout: 10
+testsuite:
+  - https://$MAYHEM_DOMAIN/$MAYHEM_PROJECT/$MAYHEM_TARGET/testsuite.tar
+  - file://mayhem/fuzz_pipe_server/testsuite

@@ -1,0 +1,22 @@
+onnx-example:­
+5
+Input0
+Input1
+Input2Output"Concat*
+axis concat-modelZ
+Input0
+
+
+Z
+Input1
+
+
+Z
+Input2
+
+
+b
+Output
+
+
+

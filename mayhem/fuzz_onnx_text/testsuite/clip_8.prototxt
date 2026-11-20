@@ -1,0 +1,54 @@
+
+                   ir_version: 3
+                   producer_name:  "CNTK"
+                   producer_version:  "2.5.1"
+                   domain:  "ai.cntk"
+                   model_version: 1
+                   graph {
+                     name:  "CNTKGraph"
+                     input {
+                        name: "Input"
+                        type {
+                          tensor_type {
+                            elem_type: 1
+                            shape {
+                              dim {
+                                dim_value: 5
+                              }
+                            }
+                          }
+                        }
+                      }
+                     node {
+                         input: "Input"
+                         output: "Output"
+                         name: "ActivationLayer"
+                         op_type: "Clip"
+                         attribute {
+                           name: "min"
+                           f:  1
+                           type: FLOAT
+                         }
+                         attribute {
+                           name: "max"
+                           f:  1
+                           type: FLOAT
+                         }
+                    }
+                      output {
+                          name: "Output"
+                          type {
+                             tensor_type {
+                               elem_type: 1
+                               shape {
+                                   dim {
+                                       dim_value: 5
+                                   }
+                               }
+                            }
+                         }
+                      }
+                    }
+                   opset_import {
+                      version: 7
+                    }

@@ -1,0 +1,116 @@
+
+                    ir_version: 3
+                    producer_name:  "CNTK "
+                    producer_version:  "2.5.1 "
+                    domain:  "ai.cntk "
+                    model_version: 1
+                    graph {
+                      name:  "CNTKGraph "
+                      input {
+                         name: "Input"
+                         type {
+                           tensor_type {
+                             elem_type: 1
+                             shape {
+                               dim {
+                                 dim_value: 1
+                               }
+                               dim {
+                                 dim_value: 1
+                               }
+                             }
+                           }
+                         }
+                       }
+                       input {
+                          name: "Weight"
+                          type {
+                            tensor_type {
+                              elem_type: 1
+                              shape {
+                                dim {
+                                  dim_value: 1
+                                }
+                                dim {
+                                  dim_value: 1
+                                }
+                              }
+                            }
+                          }
+                        }
+                        initializer {
+                          dims: 1
+                          dims: 1
+                          data_type: 1
+                          float_data: 2
+                          name: "Weight"
+                       }
+                       input {
+                          name: "Bias"
+                          type {
+                            tensor_type {
+                              elem_type: 1
+                              shape {
+                                dim {
+                                  dim_value: 1
+                                }
+                              }
+                            }
+                          }
+                        }
+                        initializer {
+                          dims: 1
+                          data_type: 1
+                          float_data: 1
+                          name: "Bias"
+                       }
+                       node {
+                           input: "Input"
+                           input: "Weight"
+                           output: "AddInput"
+                           name: "FCMatmul"
+                           op_type: "MatMul"
+                       }
+                       node {
+                           input: "AddInput"
+                           input: "Bias"
+                           output: "Output"
+                           name: "FCAdd"
+                           op_type: "Add"
+                       }
+                       value_info {
+                            name: "AddInput"
+                            type {
+                              tensor_type {
+                                elem_type: 1
+                                shape {
+                                  dim {
+                                    dim_value: 1
+                                  }
+                                  dim {
+                                    dim_value: 1
+                                  }
+                                }
+                              }
+                            }
+                          }
+                      output {
+                           name:  "Output"
+                           type {
+                              tensor_type {
+                                elem_type: 1
+                                shape {
+                                  dim {
+                                     dim_value: 1
+                                  }
+                                  dim {
+                                     dim_value: 1
+                                  }
+                                }
+                              }
+                           }
+                       }
+                    }
+                    opset_import {
+                       version: 7
+                     }

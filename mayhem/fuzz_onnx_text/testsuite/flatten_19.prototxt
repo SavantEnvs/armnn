@@ -1,0 +1,61 @@
+
+                   ir_version: 3
+                   producer_name:  "CNTK"
+                   producer_version:  "2.5.1"
+                   domain:  "ai.cntk"
+                   model_version: 1
+                   graph {
+                     name:  "CNTKGraph"
+                     input {
+                        name: "Input"
+                        type {
+                          tensor_type {
+                            elem_type: 1
+                            shape {
+                              dim {
+                                dim_value: 2
+                              }
+                              dim {
+                                dim_value: 2
+                              }
+                              dim {
+                                dim_value: 3
+                              }
+                              dim {
+                                dim_value: 3
+                              }
+                            }
+                          }
+                        }
+                      }
+                     node {
+                         input: "Input"
+                         output: "Output"
+                         name: "flatten"
+                         op_type: "Flatten"
+                         attribute {
+                           name: "axis"
+                           i: 0
+                           type: INT
+                         }
+                      }
+                      output {
+                          name: "Output"
+                          type {
+                             tensor_type {
+                               elem_type: 1
+                               shape {
+                                   dim {
+                                       dim_value: 1
+                                   }
+                                   dim {
+                                       dim_value: 36
+                                   }
+                               }
+                            }
+                          }
+                       }
+                    }
+                   opset_import {
+                      version: 7
+                    }

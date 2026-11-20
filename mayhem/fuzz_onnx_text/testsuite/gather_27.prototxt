@@ -1,0 +1,76 @@
+
+                    ir_version: 8
+                    producer_name: "onnx-example"
+                    graph {
+                      node {
+                        output: "indices"
+                        op_type: "Constant"
+                        attribute {
+                          name: "value"
+                          t {
+                            dims: 3
+                            data_type: 7
+                            raw_data:
+                      "\000\000\000\000\000\000\000\000\001\000\000\000\000\000\000\000\003\000\000\000\000\000\000\000"
+                            name: "value"
+                          }
+                          type: TENSOR
+                        }
+                      }
+                      node {
+                        input: "input"
+                        input: "indices"
+                        output: "output"
+                        op_type: "Gather"
+                        attribute {
+                          name: "axis"
+                          i: 0
+                          type: INT
+                        }
+                      }
+                      name: "gather-model"
+                      input {
+                        name: "input"
+                        type {
+                          tensor_type {
+                            elem_type: 1
+                            shape {
+                              dim {
+                                dim_value: 5
+                              }
+                              dim {
+                                dim_value: 4
+                              }
+                              dim {
+                                dim_value: 3
+                              }
+                              dim {
+                                dim_value: 2
+                              }
+                            }
+                          }
+                        }
+                      }
+                      output {
+                        name: "output"
+                        type {
+                          tensor_type {
+                            elem_type: 1
+                            shape {
+                              dim {
+                                dim_value: 3
+                              }
+                              dim {
+                                dim_value: 4
+                              }
+                              dim {
+                                dim_value: 3
+                              }
+                              dim {
+                                dim_value: 2
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }

@@ -1,0 +1,78 @@
+
+                   ir_version: 3
+                   producer_name:  "CNTK"
+                   producer_version:  "2.5.1"
+                   domain:  "ai.cntk"
+                   model_version: 1
+                   graph {
+                     name:  "CNTKGraph"
+                     input {
+                        name: "Input"
+                        type {
+                          tensor_type {
+                            elem_type: 1
+                            shape {
+                              dim {
+                                dim_value: 2
+                              }
+                              dim {
+                                dim_value: 2
+                              }
+                              dim {
+                                dim_value: 3
+                              }
+                              dim {
+                                dim_value: 3
+                              }
+                            }
+                          }
+                        }
+                      }
+                      input {
+                         name: "Shape"
+                         type {
+                           tensor_type {
+                             elem_type: 7
+                             shape {
+                               dim {
+                                 dim_value: 2
+                               }
+                             }
+                           }
+                         }
+                       }
+                     node {
+                         input: "Input"
+                         input: "Shape"
+                         output: "Output"
+                         name: "reshape"
+                         op_type: "Reshape"
+
+                      }
+                      initializer {
+                        dims: 2
+                        data_type: 7
+                        int64_data: 2
+                        int64_data: 2
+                        name: "Shape"
+                     }
+                      output {
+                          name: "Output"
+                          type {
+                             tensor_type {
+                               elem_type: 1
+                               shape {
+                                   dim {
+                                       dim_value: 6
+                                   }
+                                   dim {
+                                       dim_value: 6
+                                   }
+                               }
+                            }
+                          }
+                       }
+                    }
+                   opset_import {
+                      version: 7
+                    }

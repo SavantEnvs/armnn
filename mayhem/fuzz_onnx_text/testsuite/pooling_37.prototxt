@@ -1,0 +1,87 @@
+
+                   ir_version: 3
+                   producer_name:  "CNTK"
+                   producer_version:  "2.5.1"
+                   domain:  "ai.cntk"
+                   model_version: 1
+                   graph {
+                     name:  "CNTKGraph"
+                     input {
+                        name: "Input"
+                        type {
+                          tensor_type {
+                            elem_type: 1
+                            shape {
+                              dim {
+                                dim_value: 1
+                              }
+                              dim {
+                                dim_value: 1
+                              }
+                              dim {
+                                dim_value: 2
+                              }
+                              dim {
+                                dim_value: 2
+                              }
+                            }
+                          }
+                        }
+                      }
+                     node {
+                         input: "Input"
+                         output: "Output"
+                         name: "Pooling"
+                         op_type: "AveragePool"
+                         attribute {
+                           name: "kernel_shape"
+                           ints: 4
+                           ints: 4
+                           type: INTS
+                         }
+                         attribute {
+                           name: "strides"
+                           ints: 1
+                           ints: 1
+                           type: INTS
+                         }
+                         attribute {
+                           name: "pads"
+                           ints: 1
+                           ints: 1
+                           ints: 1
+                           ints: 1
+                           type: INTS
+                         }
+                         attribute {
+                           name: "count_include_pad"
+                           i: 1
+                           type: INT
+                         }
+                      }
+                      output {
+                          name: "Output"
+                          type {
+                             tensor_type {
+                               elem_type: 1
+                               shape {
+                                   dim {
+                                       dim_value: 1
+                                   }
+                                   dim {
+                                       dim_value: 1
+                                   }
+                                   dim {
+                                       dim_value: 1
+                                   }
+                                   dim {
+                                       dim_value: 1
+                                   }
+                               }
+                            }
+                        }
+                        }
+                    }
+                   opset_import {
+                      version: 7
+                    }

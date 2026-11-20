@@ -1,0 +1,102 @@
+
+                    ir_version: 8
+                    producer_name: "onnx-example"
+                    graph {
+                      node {
+                        input: "A"
+                        input: "B"
+                        input: "C"
+                        output: "Output"
+                        op_type: "Gemm"
+                        attribute {
+                          name: "alpha"
+                          f: 0.25
+                          type: FLOAT
+                        }
+                        attribute {
+                          name: "beta"
+                          f: 0.35
+                          type: FLOAT
+                        }
+                        attribute {
+                          name: "transA"
+                          i: 1
+                          type: INT
+                        }
+                        attribute {
+                          name: "transB"
+                          i: 1
+                          type: INT
+                        }
+                      }
+                      name: "gem-model"
+                      initializer {
+                        dims: 5
+                        dims: 4
+                        data_type: 1
+                        float_data: 1.0
+                        float_data: 2.0
+                        float_data: 3.0
+                        float_data: 4.0
+                        float_data: 5.0
+                        float_data: 6.0
+                        float_data: 7.0
+                        float_data: 8.0
+                        float_data: 9.0
+                        float_data: 10.0
+                        float_data: 11.0
+                        float_data: 12.0
+                        float_data: 13.0
+                        float_data: 14.0
+                        float_data: 15.0
+                        float_data: 16.0
+                        float_data: 17.0
+                        float_data: 18.0
+                        float_data: 19.0
+                        float_data: 20.0
+                        name: "B"
+                      }
+                      initializer {
+                        dims: 1
+                        dims: 5
+                        data_type: 1
+                        float_data: 0.1
+                        float_data: 0.2
+                        float_data: 0.3
+                        float_data: 0.4
+                        float_data: 0.5
+                        name: "C"
+                      }
+                      input {
+                        name: "A"
+                        type {
+                          tensor_type {
+                            elem_type: 1
+                            shape {
+                              dim {
+                                dim_value: 4
+                              }
+                              dim {
+                                dim_value: 3
+                              }
+                            }
+                          }
+                        }
+                      }
+                      output {
+                        name: "Output"
+                        type {
+                          tensor_type {
+                            elem_type: 1
+                            shape {
+                              dim {
+                                dim_value: 3
+                              }
+                              dim {
+                                dim_value: 5
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }

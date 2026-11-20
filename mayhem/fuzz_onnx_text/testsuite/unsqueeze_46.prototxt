@@ -1,0 +1,63 @@
+
+                    ir_version: 8
+                    producer_name: "onnx-example"
+                    graph {
+                      node {
+                        input: "Input"
+                        input: "Axes"
+                        output: "Output"
+                        op_type: "Unsqueeze"
+                      }
+                      initializer {
+                          dims: 2
+                          data_type: 7
+                          int64_data: 0
+                          int64_data: 3
+                          name: "Axes"
+                        }
+                      name: "test-model"
+                      input {
+                        name: "Input"
+                        type {
+                          tensor_type {
+                            elem_type: 1
+                            shape {
+                              dim {
+                                dim_value: 3
+                              }
+                              dim {
+                                dim_value: 2
+                              }
+                              dim {
+                                dim_value: 5
+                              }
+                            }
+                          }
+                        }
+                      }
+                      output {
+                        name: "Output"
+                        type {
+                          tensor_type {
+                            elem_type: 1
+                            shape {
+                              dim {
+                                dim_value: 1
+                              }
+                              dim {
+                                dim_value: 3
+                              }
+                              dim {
+                                dim_value: 2
+                              }
+                              dim {
+                                dim_value: 1
+                              }
+                              dim {
+                                dim_value: 5
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }

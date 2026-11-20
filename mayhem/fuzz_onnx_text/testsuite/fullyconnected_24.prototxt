@@ -1,0 +1,181 @@
+
+                    ir_version: 3
+                    producer_name:  "CNTK "
+                    producer_version:  "2.5.1 "
+                    domain:  "ai.cntk "
+                    model_version: 1
+                    graph {
+                      name:  "CNTKGraph "
+                      input {
+                         name: "Input"
+                         type {
+                           tensor_type {
+                             elem_type: 1
+                             shape {
+                               dim {
+                                 dim_value: 1
+                               }
+                               dim {
+                                 dim_value: 1
+                               }
+                             }
+                           }
+                         }
+                       }
+                       input {
+                          name: "Weight"
+                          type {
+                            tensor_type {
+                              elem_type: 1
+                              shape {
+                                dim {
+                                  dim_value: 1
+                                }
+                                dim {
+                                  dim_value: 1
+                                }
+                              }
+                            }
+                          }
+                        }
+                        initializer {
+                          dims: 1
+                          dims: 1
+                          data_type: 1
+                          float_data: 2
+                          name: "Weight"
+                       }
+                       input {
+                          name: "Bias"
+                          type {
+                            tensor_type {
+                              elem_type: 1
+                              shape {
+                                dim {
+                                  dim_value: 1
+                                }
+                              }
+                            }
+                          }
+                        }
+                        initializer {
+                          dims: 1
+                          data_type: 1
+                          float_data: 1
+                          name: "Bias"
+                       }
+                       input {
+                          name: "Bias_1"
+                          type {
+                            tensor_type {
+                              elem_type: 1
+                              shape {
+                                dim {
+                                  dim_value: 1
+                                }
+                              }
+                            }
+                          }
+                        }
+                        initializer {
+                          dims: 1
+                          data_type: 1
+                          float_data: 10.0
+                          name: "Bias_1"
+                       }
+                       node {
+                           input: "Input"
+                           input: "Weight"
+                           output: "AddInput"
+                           name: "FCMatmul"
+                           op_type: "MatMul"
+                       }
+                       node {
+                           input: "AddInput"
+                           input: "Bias"
+                           output: "AddOutput"
+                           name: "FCAdd"
+                           op_type: "Add"
+                       }
+                       node {
+                           input: "AddInput"
+                           input: "Bias_1"
+                           output: "AddOutput_1"
+                           name: "FCAdd_1"
+                           op_type: "Add"
+                       }
+                       node {
+                           input: "AddOutput"
+                           input: "AddOutput_1"
+                           output: "Output"
+                           name: "FinalAdd"
+                           op_type: "Add"
+                       }
+                       value_info {
+                            name: "AddInput"
+                            type {
+                              tensor_type {
+                                elem_type: 1
+                                shape {
+                                  dim {
+                                    dim_value: 1
+                                  }
+                                  dim {
+                                    dim_value: 1
+                                  }
+                                }
+                              }
+                            }
+                          }
+                      value_info {
+                           name:  "AddOutput"
+                           type {
+                              tensor_type {
+                                elem_type: 1
+                                shape {
+                                  dim {
+                                     dim_value: 1
+                                  }
+                                  dim {
+                                     dim_value: 1
+                                  }
+                                }
+                              }
+                           }
+                       }
+                       value_info {
+                            name:  "AddOutput_1"
+                            type {
+                               tensor_type {
+                                 elem_type: 1
+                                 shape {
+                                   dim {
+                                      dim_value: 1
+                                   }
+                                   dim {
+                                      dim_value: 1
+                                   }
+                                 }
+                               }
+                            }
+                        }
+                        output {
+                             name:  "Output"
+                             type {
+                                tensor_type {
+                                  elem_type: 1
+                                  shape {
+                                    dim {
+                                       dim_value: 1
+                                    }
+                                    dim {
+                                       dim_value: 1
+                                    }
+                                  }
+                                }
+                             }
+                         }
+                    }
+                    opset_import {
+                       version: 7
+                     }
